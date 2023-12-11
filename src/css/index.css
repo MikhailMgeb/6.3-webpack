@@ -1,8 +1,10 @@
 .page {
   margin: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
+
 	text-align: center;
+
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hidden {
@@ -14,23 +16,29 @@
 }
 
 .lds-ring {
-  display: inline-block;
   position: relative;
+
+  display: inline-block;
+
   width: 200px;
   height: 200px;
 }
 
 .lds-ring div {
-  box-sizing: border-box;
-  display: block;
   position: absolute;
+
+  display: block;
+
   width: 160px;
   height: 160px;
   margin: 8px;
+  box-sizing: border-box;
+
   border: 8px solid #fff;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #46a711 transparent transparent transparent;
+  border-radius: 50%;
+
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
 }
 
 .lds-ring div:nth-child(1) {

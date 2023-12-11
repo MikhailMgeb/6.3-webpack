@@ -34,4 +34,4 @@ fetch(
     image.src = url.urls.full;
     page.appendChild(image);
   })
-  .catch(console.log('нет фотки!!!'));
+  .catch('нет фотки!!!');

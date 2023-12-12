@@ -7,8 +7,8 @@
     "start": "npx webpack serve --config=webpack.development.config.js",
     "build": "webpack --config=webpack.development.config.js",
     "build:production": "webpack",
-    "lint": "eslint ./src && stylelint 'src/**/*.css'",
-    "lint:fix": "eslint ./src --fix && stylelint './src/**/*.css' --fix"
+    "lint": "eslint ./src && stylelint src/**/*.css",
+    "lint:fix": "eslint ./src --fix && stylelint src/**/*.css --fix"
   },
   "keywords": [],
   "author": "",

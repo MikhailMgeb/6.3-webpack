@@ -1,7 +1,7 @@
 const { propertyOrdering, selectorOrdering } = require('stylelint-semantic-groups');
 
 module.exports = {
-    extends: ["stylelint-config-recommended"],
+    extends: ['@shopify/stylelint-plugin'],
     plugins: ['stylelint-order'],
     rules: {
         'order/order': selectorOrdering, // to fine-tune configuration use selectorOrderFactory

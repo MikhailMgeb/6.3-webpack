@@ -34,8 +34,8 @@
   margin: 8px;
   box-sizing: border-box;
 
-  border: 8px solid #fff;
-  border-color: #46a711 transparent transparent transparent;
+  border: 8px solid rgb(255, 255, 255);
+  border-color: rgb(70, 167, 17) transparent transparent;
   border-radius: 50%;
 
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
@@ -57,6 +57,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

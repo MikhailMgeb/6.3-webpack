@@ -1,6 +1,4 @@
 import API_KEY from './api-key';
-// import '../css/index.css';
-// import '../scss/index.scss';
 
 const page = document.querySelector('.page');
 const image = document.createElement('img');

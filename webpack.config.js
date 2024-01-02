@@ -1,39 +1,18 @@
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 const PugPlugin = require('pug-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: {
-    index: './src/pug/index.pug',
-    // 'route/to/page': './src/pug/index.pug',
-  },
+  entry: './src/pug/index.pug',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   module: {
     rules: [
-      // {
-      //   test: /\.css$/i,
-      //   use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      // },
-      // {
-      //   test: /\.s[ac]ss$/i,
-      //   use: [
-      //     MiniCssExtractPlugin.loader,
-      //     'css-loader',
-      //     {
-      //       loader: 'sass-loader',
-      //       options: {
-      //         implementation: require('sass'),
-      //       },
-      //     },
-
-      //   ],
-      // },
+      {
+        test: /.pug$/,
+        loader: PugPlugin.loader,
+      },
       {
         test: /\.(css|sass|scss)$/,
         use: ['css-loader', 'sass-loader'],
@@ -50,35 +29,29 @@ module.exports = {
         },
       },
       {
-        test: /\.html$/i,
-        loader: 'html-loader',
-      },
-      {
         test: /\.svg$/,
         type: 'asset/resource',
         loader: 'svgo-loader',
       },
       {
-        test: /.pug$/,
-        loader: PugPlugin.loader,
-      },
+        test:/\.(jpg|png|svg)$/,
+        loader: 'file-loader',
+        options:{
+          name: '/images/[sha512:hash:base64:7].[ext]',
+          outputPath :  '/images/',
+        }
+      }
     ],
   },
-  // optimization: {
-  //   minimize: true,
-  //   minimizer: [
-  //     new ImageMinimizerPlugin({
-  //       minimizer: {
-  //         implementation: ImageMinimizerPlugin.squooshMinify,
-  //       },
-  //     }),
-  //   ],
-  // },
   plugins: [
-    // new HtmlWebpackPlugin({
-    //   template: './src/index.html',
-    // }),
-    new PugPlugin(),
-    // new MiniCssExtractPlugin(),
+    new PugPlugin({
+      pretty: true,
+      js: {
+        filename: 'js/[name].[contenthash:8].js',
+      },
+      css: {
+        filename: 'css/[name].[contenthash:8].css',
+      },
+    }),
   ],
 };
